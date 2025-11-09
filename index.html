@@ -15,13 +15,14 @@
     body {
       background-color: #000;
       overflow: hidden;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #ff2b2b;
       text-align: center;
+      padding: 20px;
     }
     h1 {
       font-size: 2em;
@@ -30,7 +31,7 @@
       position: relative;
       margin-bottom: 20px;
     }
-    .info-box {
+    .info-box, .about-box {
       background-color: rgba(0, 0, 0, 0.7);
       border: 2px solid #ff2b2b;
       padding: 20px;
@@ -43,6 +44,20 @@
       font-size: 1em;
       line-height: 1.5;
       box-shadow: 0 0 20px #ff0000;
+      margin-bottom: 20px;
+    }
+    .about-box img {
+      display: block;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 10px auto;
+      border: 2px solid #ff2b2b;
+    }
+    a {
+      color: #ff2b2b;
+      text-decoration: underline;
     }
     canvas {
       position: fixed;
@@ -58,11 +73,19 @@
   <canvas id="thunder"></canvas>
   <h1>Hello, I'm Samrat Pokhrel<br>Learning Coding Only from Butwal</h1>
 
+  <!-- About Me Box -->
+  <div class="about-box">
+    <img src="https://share.google/images/GXcvOBYQGIp20yRyG" alt="Samrat Pokhrel Profile Picture">
+    <h2>About Me</h2>
+    <p>Hello! I am <strong>Samrat Pokhrel</strong> from Butwal. I am a <strong>class 8 student</strong> currently studying at <strong>Shree Shanti</strong>. I am learning coding and exploring technology.</p>
+  </div>
+
+  <!-- Projects / Contact Box -->
   <div class="info-box">
     <h2>My Projects & Contact</h2>
     <p><strong>Pterodactyl Panel & Wings Deployment and Configuration</strong></p>
     <p><strong>XDP Protection:</strong> TCP, UDP, Application Layer, etc.</p>
-    <p>Contact: <a href="mailto:samratpokhrel80@gmail.com" style="color:#ff2b2b; text-decoration: underline;">samratpokhrel80@gmail.com</a></p>
+    <p>Contact: <a href="mailto:samratpokhrel80@gmail.com">samratpokhrel80@gmail.com</a></p>
   </div>
 
   <script>
