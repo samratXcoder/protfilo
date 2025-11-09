@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samrat Pokhrel</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    body {
+      background-color: #000;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ff2b2b;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2em;
+      text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
+      z-index: 2;
+      position: relative;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="thunder"></canvas>
+  <h1>Hello, I'm Samrat Pokhrel<br>Learning Coding Only from Butwal</h1>
+
+  <script>
+    // Red Thunderstorm background
+    const canvas = document.getElementById('thunder');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    function resize() {
+      w = canvas.width = window.innerWidth;
+      h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    const bolts = [];
+    const numBolts = 40;
+
+    class Bolt {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.len = Math.random() * 80 + 20;
+        this.angle = Math.random() * Math.PI * 2;
+        this.life = Math.random() * 15 + 10;
+      }
+      update() {
+        this.life--;
+        if (this.life <= 0) this.reset();
+      }
+      draw() {
+        const x2 = this.x + Math.cos(this.angle) * this.len;
+        const y2 = this.y + Math.sin(this.angle) * this.len;
+        ctx.beginPath();
+        ctx.strokeStyle = `rgba(255,0,0,${Math.random() * 0.8 + 0.2})`;
+        ctx.lineWidth = Math.random() * 2 + 0.5;
+        ctx.shadowBlur = Math.random() * 15 + 5;
+        ctx.shadowColor = 'red';
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+    }
+
+    for (let i = 0; i < numBolts; i++) bolts.push(new Bolt());
+
+    function animate() {
+      ctx.fillStyle = 'rgba(0,0,0,0.2)';
+      ctx.fillRect(0, 0, w, h);
+      bolts.forEach(b => {
+        b.update();
+        b.draw();
+      });
+      // occasional flash
+      if (Math.random() < 0.05) {
+        ctx.fillStyle = 'rgba(255,0,0,0.08)';
+        ctx.fillRect(0, 0, w, h);
+      }
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
