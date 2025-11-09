@@ -17,6 +17,7 @@
       overflow: hidden;
       height: 100vh;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: #ff2b2b;
@@ -27,6 +28,21 @@
       text-shadow: 0 0 30px #ff0000, 0 0 60px #ff0000;
       z-index: 2;
       position: relative;
+      margin-bottom: 20px;
+    }
+    .info-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 2px solid #ff2b2b;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      text-align: left;
+      z-index: 2;
+      position: relative;
+      color: #ff2b2b;
+      font-size: 1em;
+      line-height: 1.5;
+      box-shadow: 0 0 20px #ff0000;
     }
     canvas {
       position: fixed;
@@ -41,6 +57,13 @@
 <body>
   <canvas id="thunder"></canvas>
   <h1>Hello, I'm Samrat Pokhrel<br>Learning Coding Only from Butwal</h1>
+
+  <div class="info-box">
+    <h2>My Projects & Contact</h2>
+    <p><strong>Pterodactyl Panel & Wings Deployment and Configuration</strong></p>
+    <p><strong>XDP Protection:</strong> TCP, UDP, Application Layer, etc.</p>
+    <p>Contact: <a href="mailto:samratpokhrel80@gmail.com" style="color:#ff2b2b; text-decoration: underline;">samratpokhrel80@gmail.com</a></p>
+  </div>
 
   <script>
     // Red Thunderstorm background
@@ -95,7 +118,6 @@
         b.update();
         b.draw();
       });
-      // occasional flash
       if (Math.random() < 0.05) {
         ctx.fillStyle = 'rgba(255,0,0,0.08)';
         ctx.fillRect(0, 0, w, h);
