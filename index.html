@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAMRAT POKHREL // [ NEXUS_CORE_V5.0 - PURPLE FOCUS ]</title>
+  <title>// CORE PROFILE//</title>
   <style>
     /* Importing highly stylized, technical fonts */
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
@@ -12,7 +12,7 @@
       /* Focused Dark Purple & Electric Cyan Palette */
       --color-primary: #a020f0; /* Intense Violet/Purple */
       --color-secondary: #00ffff; /* Electric Cyan */
-      --color-background: #050010; /* Extremely Dark Purple-Black */
+      --color-background: #000000; /* Pure Black for professional focus */
       --color-text: #e0f0ff;
       --shadow-color: #a020f0;
       /* Stronger, clearer glow for boxes */
@@ -27,7 +27,8 @@
     }
     
     body {
-      background-color: var(--color-background);
+      /* Solid Black Background (Most Professional & Non-distracting) */
+      background-color: var(--color-background); 
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -35,22 +36,12 @@
       color: var(--color-text);
       padding: 30px 20px;
       overflow-x: hidden;
-      perspective: 1000px;
-      position: relative;
     }
 
-    /* --- BACKGROUND LAYERS --- */
-    /* Only the particle canvas remains as the background element */
-    #particle-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      opacity: 0.9;
-    }
+    /* --- TITLE REMOVAL: The h1 is commented out in the HTML --- */
 
+    /* The canvas and all background animation scripts are REMOVED here. */
+    
     /* Main Content Container for Split Layout */
     .container {
         display: grid;
@@ -58,7 +49,7 @@
         gap: 30px;
         max-width: 1200px;
         width: 95%;
-        margin-top: 50px;
+        margin-top: 50px; /* Bring the content up where the title used to be */
         z-index: 2;
     }
 
@@ -68,33 +59,22 @@
         gap: 30px;
     }
 
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3.5em; 
-      color: var(--color-secondary);
-      text-shadow: 0 0 10px var(--color-secondary), 0 0 40px rgba(0, 255, 255, 0.8);
-      z-index: 3;
-      position: relative;
-      padding-bottom: 10px;
-      border-bottom: 2px solid var(--color-secondary);
-      margin-top: 20px;
-      max-width: 95%;
-      text-align: center;
-    }
-
+    /* REMOVING the h1 style here since the element is removed */
+    
     .data-panel {
-      background-color: rgba(0, 0, 0, 0.95); /* Near black panel background */
+      /* KEEPING THE DARK PANEL LOOK */
+      background-color: rgba(0, 0, 0, 0.95); 
       border: 3px solid var(--color-primary);
       padding: 30px;
       border-radius: 8px;
       text-align: left;
       line-height: 1.7;
-      box-shadow: var(--box-glow); /* Strong purple glow */
+      box-shadow: var(--box-glow); 
       transition: all 0.4s ease;
       transform: translateZ(0);
     }
     .data-panel:hover {
-        box-shadow: 0 0 20px var(--color-secondary), 0 0 50px rgba(0, 255, 255, 0.5); /* Cyan hover glow */
+        box-shadow: 0 0 20px var(--color-secondary), 0 0 50px rgba(0, 255, 255, 0.5);
         transform: translateZ(10px); 
     }
     
@@ -180,10 +160,6 @@
   </style>
 </head>
 <body>
-    <canvas id="particle-canvas"></canvas>
-
-    <h1>// NEXUS_ACCESS_ONLINE :: SAMRAT POKHREL</h1>
-    
     <div class="container">
         <div class="main-content">
             
@@ -192,9 +168,10 @@
                 <div class="profile-header">
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR61z2Fv-qT0R_2oY5g_LhXo21rK4b2K5lW0w&s" alt="System Operator Image">
                     <div class="profile-text">
-                        <p>ALIAS: **SAMRAT_P**</p>
-                        <p>CLASS: **CYBERNETIC_APPRENTICE (L8)**</p>
-                        <p>LOCATION: **BUTWAL SECTOR**</p>
+                        <p>ALIAS: **SAMRAT_POKHREL**</p>
+                        <p>CLASS: **8**</p>
+                        <p>LOCATION: **BUTWAL**</p>
+                        <p> SCHOOL: **SHREE SHANTI**</p>
                         <p>STATUS: <span style="color: #00ff00;">**INITIALIZED & RUNNING**</span></p>
                     </div>
                 </div>
@@ -248,94 +225,5 @@
         </div>
     </div>
     
-    <script>
-      // ADVANCED PARTICLE FIELD SIMULATION 
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-
-      let w = canvas.width = window.innerWidth;
-      let h = canvas.height = window.innerHeight;
-      
-      window.addEventListener('resize', () => {
-          w = canvas.width = window.innerWidth;
-          h = canvas.height = window.innerHeight;
-          particles = [];
-          initParticles();
-      });
-
-      const numParticles = 80;
-      const particleColor = '#00ffff'; 
-      const lineColor = 'rgba(160, 32, 240, 0.4)'; /* Adjusted to be slightly fainter purple */
-
-      let particles = [];
-
-      class Particle {
-          constructor() {
-              this.x = Math.random() * w;
-              this.y = Math.random() * h;
-              this.vx = (Math.random() - 0.5) * 0.5; 
-              this.vy = (Math.random() - 0.5) * 0.5;
-              this.radius = Math.random() * 2 + 0.5;
-              this.opacity = Math.random() * 0.6 + 0.2;
-          }
-          update() {
-              this.x += this.vx;
-              this.y += this.vy;
-              
-              if (this.x < 0 || this.x > w) this.vx *= -1;
-              if (this.y < 0 || this.y > h) this.vy *= -1;
-          }
-          draw() {
-              ctx.fillStyle = `rgba(0, 255, 255, ${this.opacity})`;
-              ctx.beginPath();
-              ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-              ctx.fill();
-              ctx.shadowBlur = 5;
-              ctx.shadowColor = particleColor;
-          }
-      }
-
-      function initParticles() {
-          for (let i = 0; i < numParticles; i++) {
-              particles.push(new Particle());
-          }
-      }
-      
-      function drawLines() {
-          for (let i = 0; i < particles.length; i++) {
-              for (let j = i + 1; j < particles.length; j++) {
-                  const p1 = particles[i];
-                  const p2 = particles[j];
-                  const dist = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
-
-                  if (dist < 100) { 
-                      ctx.strokeStyle = lineColor;
-                      ctx.lineWidth = 0.5;
-                      ctx.beginPath();
-                      ctx.moveTo(p1.x, p1.y);
-                      ctx.lineTo(p2.x, p2.y);
-                      ctx.stroke();
-                  }
-              }
-          }
-      }
-
-      function animate() {
-          /* Background color must match the body's background color exactly for a smooth effect */
-          ctx.fillStyle = 'rgba(5, 0, 16, 0.1)'; 
-          ctx.fillRect(0, 0, w, h);
-          
-          drawLines();
-          particles.forEach(p => {
-              p.update();
-              p.draw();
-          });
-          
-          requestAnimationFrame(animate);
-      }
-
-      initParticles();
-      animate();
-    </script>
-</body>
+    </body>
 </html>
