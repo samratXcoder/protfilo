@@ -3,19 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SAMRAT POKHREL // [ NEXUS_CORE_V4.0 - ADVANCED ]</title>
+  <title>SAMRAT POKHREL // [ NEXUS_CORE_V5.0 - PURPLE FOCUS ]</title>
   <style>
     /* Importing highly stylized, technical fonts */
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
     
     :root {
-      /* Deep space blue/purple & electric blue for advanced aesthetic */
-      --color-primary: #8a2be2; /* Electric Purple */
+      /* Focused Dark Purple & Electric Cyan Palette */
+      --color-primary: #a020f0; /* Intense Violet/Purple */
       --color-secondary: #00ffff; /* Electric Cyan */
-      --color-background: #0d001a; /* Very deep purple-black */
+      --color-background: #050010; /* Extremely Dark Purple-Black */
       --color-text: #e0f0ff;
-      --shadow-color: #8a2be2;
-      --box-glow: 0 0 10px var(--shadow-color), 0 0 30px rgba(138, 43, 226, 0.7);
+      --shadow-color: #a020f0;
+      /* Stronger, clearer glow for boxes */
+      --box-glow: 0 0 15px var(--shadow-color), 0 0 40px rgba(160, 32, 240, 0.6);
     }
 
     * {
@@ -34,49 +35,12 @@
       color: var(--color-text);
       padding: 30px 20px;
       overflow-x: hidden;
-      perspective: 1000px; /* For 3D transforms */
-      position: relative; /* Needed for absolute positioning of layers */
+      perspective: 1000px;
+      position: relative;
     }
 
-    /* --- ADVANCED BACKGROUND LAYERS --- */
-    
-    /* 1. Hexagonal Grid Overlay */
-    .hex-grid-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -3;
-        opacity: 0.1; 
-        background-image: 
-            /* Simple diagonal lines to simulate a hexagonal feel */
-            linear-gradient(135deg, rgba(0, 255, 255, 0.1) 10%, transparent 10%),
-            linear-gradient(-135deg, rgba(0, 255, 255, 0.1) 10%, transparent 10%);
-        background-size: 80px 80px;
-    }
-
-    /* 2. Star/Hyperspace Field (CSS Animation) */
-    .star-field {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -2;
-        background: radial-gradient(circle, #8a2be2 1px, transparent 1px);
-        background-size: 100px 100px; /* Density of stars */
-        animation: hyperspace 60s linear infinite; /* Slow movement */
-        opacity: 0.2;
-        transform-origin: 50% 50%;
-    }
-
-    @keyframes hyperspace {
-        from { background-position: 0 0; }
-        to { background-position: 1000px 1000px; } /* Moves stars diagonally */
-    }
-
-    /* 3. JS Particle Canvas (Replaces Matrix) */
+    /* --- BACKGROUND LAYERS --- */
+    /* Only the particle canvas remains as the background element */
     #particle-canvas {
       position: fixed;
       top: 0;
@@ -86,8 +50,6 @@
       z-index: -1;
       opacity: 0.9;
     }
-
-    /* --- END ADVANCED BACKGROUND LAYERS --- */
 
     /* Main Content Container for Split Layout */
     .container {
@@ -117,21 +79,22 @@
       border-bottom: 2px solid var(--color-secondary);
       margin-top: 20px;
       max-width: 95%;
+      text-align: center;
     }
 
     .data-panel {
-      background-color: rgba(10, 0, 30, 0.95);
+      background-color: rgba(0, 0, 0, 0.95); /* Near black panel background */
       border: 3px solid var(--color-primary);
       padding: 30px;
       border-radius: 8px;
       text-align: left;
       line-height: 1.7;
-      box-shadow: var(--box-glow);
+      box-shadow: var(--box-glow); /* Strong purple glow */
       transition: all 0.4s ease;
       transform: translateZ(0);
     }
     .data-panel:hover {
-        box-shadow: 0 0 15px var(--color-secondary), 0 0 40px rgba(0, 255, 255, 0.5);
+        box-shadow: 0 0 20px var(--color-secondary), 0 0 50px rgba(0, 255, 255, 0.5); /* Cyan hover glow */
         transform: translateZ(10px); 
     }
     
@@ -171,7 +134,7 @@
     }
     .data-bar {
         height: 10px;
-        background-color: rgba(138, 43, 226, 0.2);
+        background-color: rgba(160, 32, 240, 0.2);
         border: 1px solid var(--color-primary);
         overflow: hidden;
     }
@@ -189,8 +152,8 @@
     
     .terminal-output {
         font-size: 0.9em;
-        color: #00ffcc;
-        background-color: rgba(0, 0, 0, 0.9);
+        color: #00ffcc; /* Green terminal text */
+        background-color: rgba(0, 0, 0, 0.95);
         padding: 15px;
         border: 1px solid var(--color-primary);
         max-height: 300px;
@@ -217,8 +180,6 @@
   </style>
 </head>
 <body>
-    <div class="star-field"></div>
-    <div class="hex-grid-overlay"></div>
     <canvas id="particle-canvas"></canvas>
 
     <h1>// NEXUS_ACCESS_ONLINE :: SAMRAT POKHREL</h1>
@@ -267,9 +228,9 @@
                 <h2>[ /system/terminal_output ]</h2>
                 <div class="terminal-output">
                     <p class="terminal-line"><span class="prompt">root@nexus:~$</span> initializing profile...</p>
-                    <p class="terminal-line">Loading module: Identity_Core_V4.0.sh [ <span style="color: #00ff00;">OK</span> ]</p>
+                    <p class="terminal-line">Loading module: Identity_Core_V5.0.sh [ <span style="color: #00ff00;">OK</span> ]</p>
                     <p class="terminal-line">Connecting to: Butwal_LAN_01...</p>
-                    <p class="terminal-line">Acquiring Data Path... <span style="color: #00ffff;">[ 100% ]</span></p>
+                    <p class="terminal-line">Acquiring Data Path... <span style="color: var(--color-secondary);">[ 100% ]</span></p>
                     <p class="terminal-line">System Check: XDP_Shield_Active = <span style="color: #00ff00;">TRUE</span></p>
                     <p class="terminal-line">Memory Allocation: 1024GB (98% usage)</p>
                     <p class="terminal-line">Deployments running: Pterodactyl_Nest-001</p>
@@ -288,7 +249,7 @@
     </div>
     
     <script>
-      // ADVANCED PARTICLE FIELD SIMULATION (Replaces Matrix Rain)
+      // ADVANCED PARTICLE FIELD SIMULATION 
       const canvas = document.getElementById('particle-canvas');
       const ctx = canvas.getContext('2d');
 
@@ -298,14 +259,13 @@
       window.addEventListener('resize', () => {
           w = canvas.width = window.innerWidth;
           h = canvas.height = window.innerHeight;
-          // Reinitialize particles on resize
           particles = [];
           initParticles();
       });
 
       const numParticles = 80;
-      const particleColor = '#00ffff'; // Electric Cyan
-      const lineColor = 'rgba(138, 43, 226, 0.5)'; // Faint Purple
+      const particleColor = '#00ffff'; 
+      const lineColor = 'rgba(160, 32, 240, 0.4)'; /* Adjusted to be slightly fainter purple */
 
       let particles = [];
 
@@ -313,7 +273,7 @@
           constructor() {
               this.x = Math.random() * w;
               this.y = Math.random() * h;
-              this.vx = (Math.random() - 0.5) * 0.5; // Slow drift
+              this.vx = (Math.random() - 0.5) * 0.5; 
               this.vy = (Math.random() - 0.5) * 0.5;
               this.radius = Math.random() * 2 + 0.5;
               this.opacity = Math.random() * 0.6 + 0.2;
@@ -348,7 +308,7 @@
                   const p2 = particles[j];
                   const dist = Math.sqrt(Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2));
 
-                  if (dist < 100) { // Connect particles within a certain distance
+                  if (dist < 100) { 
                       ctx.strokeStyle = lineColor;
                       ctx.lineWidth = 0.5;
                       ctx.beginPath();
@@ -361,7 +321,8 @@
       }
 
       function animate() {
-          ctx.fillStyle = 'rgba(13, 0, 26, 0.1)'; // Clear with slight transparency for a trail
+          /* Background color must match the body's background color exactly for a smooth effect */
+          ctx.fillStyle = 'rgba(5, 0, 16, 0.1)'; 
           ctx.fillRect(0, 0, w, h);
           
           drawLines();
