@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Loading...</title>
   <style>
-    /* Importing highly stylized, technical fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+/* Importing highly stylized, technical fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
     
     :root {
       /* Focused Dark Purple & Electric Cyan Palette */
@@ -105,23 +105,30 @@
         font-size: 0.9em;
         margin-bottom: 5px;
     }
-    .data-bar {
-        height: 10px;
-        background-color: rgba(160, 32, 240, 0.2);
-        border: 1px solid var(--color-primary);
-        overflow: hidden;
+    
     }
     .data-progress {
-        height: 100%;
-        background: linear-gradient(90deg, transparent, var(--color-primary));
-        width: 85%; 
-        animation: loading 2s infinite alternate;
-    }
+  height: 100%;
+  animation-fill-mode: forwards;
+}
 
-    @keyframes loading {
-        from { width: 70%; }
-        to { width: 80%; }
-    }
+.progress-anon {
+  background: linear-gradient(90deg, transparent, var(--color-primary));
+  animation: load-anon 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+.progress-xdp {
+  background: linear-gradient(90deg, transparent, var(--color-secondary));
+  animation: load-xdp 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes load-anon {
+  from { width: 0%; }
+  to { width: 90%; }
+}
+@keyframes load-xdp {
+  from { width: 0%; }
+  to { width: 80%; }
+}
     
     .terminal-output {
         font-size: 0.9em;
@@ -172,15 +179,17 @@
                 <p>Welcome to the portfolio. My focus is on advanced network infrastructure (Pterodactyl) and high-performance security protocols (XDP) to ensure system integrity across all deployments and botnet service runner (edu purpose no harm:)</p>
 
                 <div class="data-bar-wrapper">
-                    <div class="data-bar-label">Anonymous (✅):</div>
-                    <div class="data-bar"><div class="data-progress" style="width: 80%;"></div></div>
-                </div>
-                <div class="data-bar-wrapper">
-                    <div class="data-bar-label">Perfomence(XDP):</div>
-                    <div class="data-bar"><div class="data-progress" style="width: 80%;"></div></div>
-                </div>
-            </div>
-
+  <div class="data-bar-label">Anonymous Integrity Check (✅):</div>
+  <div class="data-bar">
+    <div class="data-progress progress-anon"></div>
+  </div>
+</div>
+               <div class="data-bar-wrapper">
+  <div class="data-bar-label">Performance Core (XDP Engine Scaling Stability):</div>
+  <div class="data-bar">
+    <div class="data-progress progress-xdp"></div>
+  </div>
+</div>
             <div class="data-panel">
                 <h2>[ /user/data/project_archive ]</h2>
                 <p style="color: var(--color-secondary);">_// LOGGING DEPLOYMENTS AND INFRASTRUCTURE INITIATIVES_</p>
