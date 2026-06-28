@@ -1,233 +1,447 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Loading...</title>
+
   <style>
-/* Importing highly stylized, technical fonts */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
+    /* Importing highly stylized, technical fonts */
+
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
+
     
+
     :root {
+
       /* Focused Dark Purple & Electric Cyan Palette */
+
       --color-primary: #a020f0; /* Intense Violet/Purple */
+
       --color-secondary: #00ffff; /* Electric Cyan */
+
       --color-background: #000000; /* Pure Black for professional focus */
+
       --color-text: #e0f0ff;
+
       --shadow-color: #a020f0;
+
       /* Stronger, clearer glow for boxes */
+
       --box-glow: 0 0 15px var(--shadow-color), 0 0 40px rgba(160, 32, 240, 0.6);
+
     }
+
+
 
     * {
+
       margin: 0;
+
       padding: 0;
+
       box-sizing: border-box;
+
       font-family: 'Share Tech Mono', monospace;
+
     }
+
     
+
     body {
+
       /* Solid Black Background (Most Professional & Non-distracting) */
+
       background-color: var(--color-background); 
+
       min-height: 100vh;
+
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       color: var(--color-text);
+
       padding: 30px 20px;
+
       overflow-x: hidden;
+
     }
+
+
 
     /* Main Content Container for Split Layout */
+
     .container {
+
         display: grid;
+
         grid-template-columns: 2fr 1fr; 
+
         gap: 30px;
+
         max-width: 1200px;
+
         width: 95%;
+
         margin-top: 50px; 
+
         z-index: 2;
+
     }
+
+
 
     .main-content {
+
         display: flex;
+
         flex-direction: column;
+
         gap: 30px;
+
     }
+
     
+
     .data-panel {
+
       background-color: rgba(0, 0, 0, 0.95); 
+
       border: 3px solid var(--color-primary);
+
       padding: 30px;
+
       border-radius: 8px;
+
       text-align: left;
+
       line-height: 1.7;
+
       box-shadow: var(--box-glow); 
+
       transition: all 0.4s ease;
+
       transform: translateZ(0);
+
     }
+
     .data-panel:hover {
+
         box-shadow: 0 0 20px var(--color-secondary), 0 0 50px rgba(0, 255, 255, 0.5);
+
         transform: translateZ(10px); 
+
     }
+
     
+
     h2 {
+
         font-family: 'Orbitron', sans-serif;
+
         color: var(--color-primary);
+
         margin-bottom: 15px;
+
         padding-bottom: 5px;
+
         border-bottom: 1px dashed var(--color-primary);
+
         text-shadow: 0 0 5px var(--shadow-color);
+
         font-weight: 700;
+
         font-size: 1.5em;
+
     }
+
+
 
     .profile-header {
+
         display: flex;
+
         align-items: center;
+
         gap: 20px;
+
         margin-bottom: 20px;
+
     }
+
     .profile-header img {
+
       width: 120px;
+
       height: 120px;
+
       border-radius: 50%;
+
       object-fit: cover;
+
       border: 4px solid var(--color-secondary);
+
       box-shadow: 0 0 15px var(--color-secondary);
+
     }
+
+
 
     .data-bar-wrapper {
+
         margin: 15px 0;
+
     }
+
     .data-bar-label {
+
         color: var(--color-secondary);
+
         font-size: 0.9em;
+
         margin-bottom: 5px;
-    }
-    
-    }
-    .data-progress {
-  height: 100%;
-  animation-fill-mode: forwards;
-}
 
-.progress-anon {
-  background: linear-gradient(90deg, transparent, var(--color-primary));
-  animation: load-anon 1.5s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
-.progress-xdp {
-  background: linear-gradient(90deg, transparent, var(--color-secondary));
-  animation: load-xdp 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
-}
+    }
 
-@keyframes load-anon {
-  from { width: 0%; }
-  to { width: 90%; }
-}
-@keyframes load-xdp {
-  from { width: 0%; }
-  to { width: 80%; }
-}
-    
-    .terminal-output {
-        font-size: 0.9em;
-        color: #00ffcc; 
-        background-color: rgba(0, 0, 0, 0.95);
-        padding: 15px;
+    .data-bar {
+
+        height: 10px;
+
+        background-color: rgba(160, 32, 240, 0.2);
+
         border: 1px solid var(--color-primary);
-        max-height: 300px;
-        overflow: auto;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+
+        overflow: hidden;
+
     }
-    .terminal-line {
-        white-space: pre;
+
+    .data-progress {
+
+        height: 100%;
+
+        background: linear-gradient(90deg, transparent, var(--color-primary));
+
+        width: 85%; 
+
+        animation: loading 2s infinite alternate;
+
     }
-    .prompt {
-        color: var(--color-primary);
+
+
+
+    @keyframes loading {
+
+        from { width: 70%; }
+
+        to { width: 80%; }
+
     }
+
     
+
+    .terminal-output {
+
+        font-size: 0.9em;
+
+        color: #00ffcc; 
+
+        background-color: rgba(0, 0, 0, 0.95);
+
+        padding: 15px;
+
+        border: 1px solid var(--color-primary);
+
+        max-height: 300px;
+
+        overflow: auto;
+
+        border-radius: 5px;
+
+        box-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+
+    }
+
+    .terminal-line {
+
+        white-space: pre;
+
+    }
+
+    .prompt {
+
+        color: var(--color-primary);
+
+    }
+
+    
+
     a {
+
       color: var(--color-secondary);
+
       text-decoration: none;
+
       transition: color 0.3s;
+
     }
+
     a:hover {
+
       color: var(--color-primary);
+
       text-decoration: underline;
+
     }
+
   </style>
+
 </head>
+
 <body>
+
     <div class="container">
+
         <div class="main-content">
+
             
+
             <div class="data-panel">
+
                 <h2>[ /user/profile/identity ]</h2>
+
                 <div class="profile-header">
+
                     <!-- Updated with a stable, high-tech abstract profile link -->
+
                     <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&h=150" alt="SAMRAT_POKHREL">
+
                     <div class="profile-text">
+
                         <p>ALIAS: SAMRAT_POKHREL</p>
+
                         <p>CLASS: 9</p>
+
                         <p>LOCATION: BUTWAL</p>
+
                         <p>SCHOOL: SHREE SHANTI</p>
+
                         <p>STATUS: <span style="color: #00ff00;"><strong>INITIALIZED & RUNNING</strong></span></p>
+
                     </div>
+
                 </div>
+
                 <p>Welcome to the portfolio. My focus is on advanced network infrastructure (Pterodactyl) and high-performance security protocols (XDP) to ensure system integrity across all deployments and botnet service runner (edu purpose no harm:)</p>
 
+
+
                 <div class="data-bar-wrapper">
-  <div class="data-bar-label">Anonymous Integrity Check (✅):</div>
-  <div class="data-bar">
-    <div class="data-progress progress-anon"></div>
-  </div>
-</div>
-               <div class="data-bar-wrapper">
-  <div class="data-bar-label">Performance Core (XDP Engine Scaling Stability):</div>
-  <div class="data-bar">
-    <div class="data-progress progress-xdp"></div>
-  </div>
-</div>
-            <div class="data-panel">
-                <h2>[ /user/data/project_archive ]</h2>
-                <p style="color: var(--color-secondary);">_// LOGGING DEPLOYMENTS AND INFRASTRUCTURE INITIATIVES_</p>
-                <ul>
-                    <li style="margin-bottom: 10px;"><strong>Pterodactyl Panel & Wings</strong>: Full-stack deployment, security hardening, and resource optimization for high-density server environments.</li>
-                   <li><strong>XDP Protection & Mitigation Module</strong>: An advanced eBPF-driven architecture designed for zero-copy, wire-speed traffic filtering. Developed for educational research to analyze, simulate, and successfully mitigate massive Layer 3/4 network floods and complex Layer 7 application assaults scaling up to 1.8 Tbps.</li>
-                  <li><Strong> DDOS BOTNET Service</Strong>: An advance mirai-botnet (For educational purpose:)no harm to others just for testing) having L3,L4,&L7 flood method capable of hitting 1 tbps. (to check whether our xdp works or not again no harm ✌️ ) </li>
-                </ul>
-                <div style="margin-top: 20px; font-size: 0.9em; color: var(--color-primary);">
-                    ACCESS_KEY_REQUIRED: <a href="mailto:samratpokhrel80@gmail.com">samratpokhrel80@gmail.com</a>
+
+                    <div class="data-bar-label">Anonymous (✅):</div>
+
+                    <div class="data-bar"><div class="data-progress" style="width: 80%;"></div></div>
+
                 </div>
+
+                <div class="data-bar-wrapper">
+
+                    <div class="data-bar-label">Perfomence(XDP):</div>
+
+                    <div class="data-bar"><div class="data-progress" style="width: 80%;"></div></div>
+
+                </div>
+
             </div>
+
+
+
+            <div class="data-panel">
+
+                <h2>[ /user/data/project_archive ]</h2>
+
+                <p style="color: var(--color-secondary);">_// LOGGING DEPLOYMENTS AND INFRASTRUCTURE INITIATIVES_</p>
+
+                <ul>
+
+                    <li style="margin-bottom: 10px;"><strong>Pterodactyl Panel & Wings</strong>: Full-stack deployment, security hardening, and resource optimization for high-density server environments.</li>
+
+                   <li><strong>XDP Protection & Mitigation Module</strong>: An advanced eBPF-driven architecture designed for zero-copy, wire-speed traffic filtering. Developed for educational research to analyze, simulate, and successfully mitigate massive Layer 3/4 network floods and complex Layer 7 application assaults scaling up to 1.8 Tbps.</li>
+
+                  <li><Strong> DDOS BOTNET Service</Strong>: An advance mirai-botnet (For educational purpose:)no harm to others just for testing) having L3,L4,&L7 flood method capable of hitting 1 tbps. (to check whether our xdp works or not again no harm ✌️ ) </li>
+
+                </ul>
+
+                <div style="margin-top: 20px; font-size: 0.9em; color: var(--color-primary);">
+
+                    ACCESS_KEY_REQUIRED: <a href="mailto:samratpokhrel80@gmail.com">samratpokhrel80@gmail.com</a>
+
+                </div>
+
+            </div>
+
         </div>
 
+
+
         <div class="sidebar-content">
+
             <div class="data-panel">
+
                 <h2>[ /system/terminal_output ]</h2>
+
                 <div class="terminal-output">
+
                     <p class="terminal-line"><span class="prompt">root@shell:~$</span> initializing profile...</p>
+
                     <p class="terminal-line">Loading module: Identity_Core_V5.0.sh [ <span style="color: #00ff00;">OK</span> ]</p>
+
                     <p class="terminal-line">Connecting to: Butwal_LAN_01...</p>
+
                     <p class="terminal-line">Acquiring Data Path... <span style="color: var(--color-secondary);">[ 100% ]</span></p>
+
                     <p class="terminal-line">System Check: XDP_Shield_Active = <span style="color: #00ff00;">TRUE</span></p>
+
                     <p class="terminal-line">Memory Allocation: 1024GB (98% usage)</p>
+
                     <p class="terminal-line">Deployments running: Pterodactyl_Nest-001</p>
+
                     <p class="terminal-line">Botnet: Shutdown (Closed) 🔴</p>
+
                     <p class="terminal-line"><span class="prompt">root@shell:~$</span> ready for command input</p>
+
                 </div>
+
             </div>
+
             
+
             <div class="data-panel" style="text-align: center;">
+
                 <h2>[ /system/contact_link ]</h2>
+
                 <p>Establishing encrypted comms channel...</p>
+
                 <h3 style="color: var(--color-secondary); font-size: 1.5em; margin-top: 10px;">
+
                     <a href="mailto:samratpokhrel80@gmail.com">[[ CONTACT_INITIATE ]]</a>
+
                 </h3>
+
             </div>
+
         </div>
+
     </div>
+
 </body>
+
 </html>
