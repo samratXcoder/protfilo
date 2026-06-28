@@ -38,10 +38,6 @@
       overflow-x: hidden;
     }
 
-    /* --- TITLE REMOVAL: The h1 is commented out in the HTML --- */
-
-    /* The canvas and all background animation scripts are REMOVED here. */
-    
     /* Main Content Container for Split Layout */
     .container {
         display: grid;
@@ -49,7 +45,7 @@
         gap: 30px;
         max-width: 1200px;
         width: 95%;
-        margin-top: 50px; /* Bring the content up where the title used to be */
+        margin-top: 50px; 
         z-index: 2;
     }
 
@@ -58,11 +54,8 @@
         flex-direction: column;
         gap: 30px;
     }
-
-    /* REMOVING the h1 style here since the element is removed */
     
     .data-panel {
-      /* KEEPING THE DARK PANEL LOOK */
       background-color: rgba(0, 0, 0, 0.95); 
       border: 3px solid var(--color-primary);
       padding: 30px;
@@ -132,7 +125,7 @@
     
     .terminal-output {
         font-size: 0.9em;
-        color: #00ffcc; /* Green terminal text */
+        color: #00ffcc; 
         background-color: rgba(0, 0, 0, 0.95);
         padding: 15px;
         border: 1px solid var(--color-primary);
@@ -166,13 +159,14 @@
             <div class="data-panel">
                 <h2>[ /user/profile/identity ]</h2>
                 <div class="profile-header">
-                    <img src="https://i.pinimg.com/736x/e0/0b/50/e00b5088a8affba4f86cb5bec082b8e4.jpg">
+                    <!-- Updated with a stable, high-tech abstract profile link -->
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&h=150" alt="SAMRAT_POKHREL">
                     <div class="profile-text">
                         <p>ALIAS: SAMRAT_POKHREL</p>
                         <p>CLASS: 9</p>
                         <p>LOCATION: BUTWAL</p>
-                        <p> SCHOOL: SHREE SHANTI</p>
-                        <p>STATUS: <span style="color: #00ff00;">**INITIALIZED & RUNNING**</span></p>
+                        <p>SCHOOL: SHREE SHANTI</p>
+                        <p>STATUS: <span style="color: #00ff00;"><strong>INITIALIZED & RUNNING</strong></span></p>
                     </div>
                 </div>
                 <p>Welcome to the core data log. My focus is on advanced network infrastructure (Pterodactyl) and high-performance security protocols (XDP) to ensure system integrity across all deployments.</p>
@@ -191,8 +185,8 @@
                 <h2>[ /user/data/project_archive ]</h2>
                 <p style="color: var(--color-secondary);">_// LOGGING DEPLOYMENTS AND INFRASTRUCTURE INITIATIVES_</p>
                 <ul>
-                    <li style="margin-bottom: 10px;">**Pterodactyl Panel & Wings**: Full-stack deployment, security hardening, and resource optimization for high-density server environments.</li>
-                    <li>**XDP Protection Module**: Kernel-level implementation of eBPF and XDP for zero-copy, wire-speed filtering against Layer 3/4 and complex application-layer DDoS attacks.</li>
+                    <li style="margin-bottom: 10px;"><strong>Pterodactyl Panel & Wings</strong>: Full-stack deployment, security hardening, and resource optimization for high-density server environments.</li>
+                    <li><strong>XDP Protection Module</strong>: Kernel-level implementation of eBPF and XDP for zero-copy, wire-speed filtering against Layer 3/4 and complex application-layer DDoS attacks.</li>
                 </ul>
                 <div style="margin-top: 20px; font-size: 0.9em; color: var(--color-primary);">
                     ACCESS_KEY_REQUIRED: <a href="mailto:samratpokhrel80@gmail.com">samratpokhrel80@gmail.com</a>
@@ -224,6 +218,5 @@
             </div>
         </div>
     </div>
-    
-    </body>
+</body>
 </html>
